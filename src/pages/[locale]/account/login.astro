@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+export { getLocaleStaticPaths as getStaticPaths } from '@/i18n/astro'
 const locale = getLocaleFromParams(Astro.params)
 const { t } = getI18n(locale)
 import AuthForm from '@/components/shared/AuthForm'
