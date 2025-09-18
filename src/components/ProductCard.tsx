@@ -10,13 +10,13 @@ type Product = {
   variants?: { id: string; title: string; prices?: { amount: number; currency_code: string }[] }[]
 }
 
-export default function ProductCard({ product, labelAdd = 'Add to Cart' }: { product: Product, labelAdd?: string }) {
+export default function ProductCard({ product, labelAdd = 'Add to Cart', locale = 'ja' }: { product: Product, labelAdd?: string, locale?: string }) {
   const add = useCartStore((s) => s.add)
   const price = product.variants?.[0]?.prices?.[0]
   const amount = price ? (price.amount / 100).toFixed(2) + ' ' + price.currency_code?.toUpperCase() : ''
   return (
     <div className="border rounded-lg overflow-hidden hover:shadow-sm transition">
-      <a href={`/products/${product.id}`}>
+      <a href={`/${locale}/products/${product.handle || product.id}`}>
         <img src={product.thumbnail || '/placeholder.png'} alt={product.title} className="w-full aspect-[4/3] object-cover" />
         <div className="p-4">
           <h3 className="font-medium line-clamp-1">{product.title}</h3>

@@ -5,13 +5,28 @@ export { getLocaleStaticPaths as getStaticPaths } from '@/i18n/astro'
 const locale = getLocaleFromParams(Astro.params)
 ---
 
-<BaseLayout title="Order Received">
-  <section class="py-10 text-center">
-    <h1 class="text-3xl font-bold">Thank you!</h1>
-    <p class="text-gray-600 mt-2">Your test order has been recorded.</p>
-    <div class="mt-6">
-      <a class="underline" href={`/${locale}`}>Back to Home</a>
+<BaseLayout title="注文受付完了">
+  <section class="py-10 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-center">ご注文を受け付けました</h1>
+    {Astro.url.searchParams.get('order') && (
+      <p class="text-center mt-2">注文番号: {Astro.url.searchParams.get('order')}</p>
+    )}
+    <div class="mt-8 prose">
+      <p>お支払い方法: 銀行振込（手動決済）</p>
+      <p>
+        以下の口座へ合計金額のご入金をお願いいたします。ご入金確認後、発送手配いたします。
+      </p>
+      <ul>
+        <li>銀行名: 〇〇銀行</li>
+        <li>支店名: △△支店</li>
+        <li>口座種別: 普通</li>
+        <li>口座番号: 1234567</li>
+        <li>口座名義: カ）スモークポート</li>
+      </ul>
+      <p class="text-sm text-gray-600">振込手数料はお客様負担となります。7日以内にご入金がない場合は自動キャンセルとなる場合があります。</p>
+    </div>
+    <div class="mt-8 text-center">
+      <a class="underline" href={`/${locale}`}>トップへ戻る</a>
     </div>
   </section>
 </BaseLayout>
-

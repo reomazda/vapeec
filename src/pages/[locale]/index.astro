@@ -34,9 +34,9 @@ const schema = {
       <p class="text-gray-600">{t('products','empty','No products available right now.')}</p>
     ) : (
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((p: MedusaProduct) => (
-          <ProductCard client:load product={p} labelAdd={t('products','addToCart')} />
-        ))}
+      {products.map((p: MedusaProduct) => (
+        <ProductCard client:load product={p} labelAdd={t('products','addToCart')} locale={locale} />
+      ))}
       </div>
     )}
   </section>

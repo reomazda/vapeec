@@ -9,12 +9,11 @@ export default function CartView() {
 
   const checkout = async () => {
     try {
-      // Compute locale from current path: /{locale}/...
       const segs = window.location.pathname.split('/').filter(Boolean)
       const locale = segs[0] || 'ja'
-      window.location.assign(`/${locale}/checkout/success`)
+      window.location.assign(`/${locale}/checkout`)
     } catch {
-      window.location.assign('/ja/checkout/success')
+      window.location.assign('/ja/checkout')
     }
   }
 

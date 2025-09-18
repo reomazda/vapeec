@@ -17,7 +17,7 @@ const products = await listProducts({ limit: 24 })
   ) : (
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {products.map((p: MedusaProduct) => (
-        <ProductCard client:load product={p} labelAdd={t('products','addToCart')} />
+        <ProductCard client:load product={p} labelAdd={t('products','addToCart')} locale={locale} />
       ))}
     </div>
   )}
