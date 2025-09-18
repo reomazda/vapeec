@@ -9,6 +9,9 @@
     "preview": "astro preview",
     "lint": "echo 'Add your linter'"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@stripe/stripe-js": "^2.4.0",
     "astro": "^4.10.0",
