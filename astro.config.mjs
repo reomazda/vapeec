@@ -4,11 +4,11 @@ import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 
-// SITE URL should be set in env or vercel project settings
-const site = process.env.SITE_URL || 'https://example.com'
-
 export default defineConfig({
-  site,
+  // Vercel requires a valid absolute site URL for sitemap/canonical URLs
+  site: 'https://smokeport.co',
+  // Ensure static output for Vercel (dist folder)
+  output: 'static',
   integrations: [
     react(),
     tailwind({ applyBaseStyles: true }),
@@ -20,19 +20,15 @@ export default defineConfig({
           'ja': 'ja',
           'en': 'en',
           'zh-CN': 'zh-CN',
-          'ko': 'ko'
-        }
-      }
-    })
+          'ko': 'ko',
+        },
+      },
+    }),
   ],
   i18n: {
     defaultLocale: 'ja',
     locales: ['ja', 'en', 'zh-CN', 'ko'],
-    routing: {
-      prefixDefaultLocale: true
-    }
+    routing: { prefixDefaultLocale: true },
   },
-  server: {
-    host: true
-  }
+  server: { host: true },
 })
