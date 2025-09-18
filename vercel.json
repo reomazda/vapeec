@@ -1,6 +1,9 @@
 {
   "functions": {
-    "runtime": "nodejs20.x"
+    "api/**/*.js": { "runtime": "nodejs20.x" },
+    "api/**/*.mjs": { "runtime": "nodejs20.x" },
+    "api/**/*.ts": { "runtime": "nodejs20.x" },
+    "_render.func": { "runtime": "nodejs20.x" }
   },
   "build": {
     "env": {
