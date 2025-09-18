@@ -11,11 +11,26 @@ export type MedusaProduct = {
 }
 
 export async function listProducts(params: Record<string, string | number> = {}) {
-  const query = new URLSearchParams({ limit: '24', ...Object.fromEntries(Object.entries(params).map(([k, v]) => [k, String(v)])) })
-  const res = await fetch(`${MEDUSA_URL}/store/products?${query}`, { cache: 'no-store' as any })
-  if (!res.ok) throw new Error('Failed to fetch products')
-  const json = await res.json()
-  return json.products as MedusaProduct[]
+  try {
+    const query = new URLSearchParams({
+      limit: '24',
+      ...Object.fromEntries(
+        Object.entries(params).map(([k, v]) => [k, String(v)])
+      ),
+    })
+    const res = await fetch(`${MEDUSA_URL}/store/products?${query}`, {
+      cache: 'no-store' as any,
+    })
+    if (!res.ok) {
+      console.warn('listProducts: non-OK response', res.status, res.statusText)
+      return []
+    }
+    const json = await res.json()
+    return (json.products || []) as MedusaProduct[]
+  } catch (err) {
+    console.warn('listProducts: fetch failed', err)
+    return []
+  }
 }
 
 export async function retrieveProduct(idOrHandle: string) {
@@ -57,4 +72,3 @@ export async function adminUpdateProduct(id: string, input: Partial<MedusaProduc
 export async function adminDeleteProduct(id: string) {
   return adminFetch(`/admin/products/${id}`, { method: 'DELETE' })
 }
-
