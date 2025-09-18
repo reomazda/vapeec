@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getLocaleFromParams } from '@/i18n/utils'
+export { getLocaleStaticPaths as getStaticPaths } from '@/i18n/astro'
+const locale = getLocaleFromParams(Astro.params)
+---
+
+<BaseLayout title="Order Received">
+  <section class="py-10 text-center">
+    <h1 class="text-3xl font-bold">Thank you!</h1>
+    <p class="text-gray-600 mt-2">Your test order has been recorded.</p>
+    <div class="mt-6">
+      <a class="underline" href={`/${locale}`}>Back to Home</a>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+export async function getStaticPaths() { return [] }
 const locale = getLocaleFromParams(Astro.params)
 const { t } = getI18n(locale)
 const { slug } = Astro.params

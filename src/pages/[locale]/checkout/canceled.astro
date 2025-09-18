@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getLocaleFromParams } from '@/i18n/utils'
+export { getLocaleStaticPaths as getStaticPaths } from '@/i18n/astro'
+const locale = getLocaleFromParams(Astro.params)
+---
+
+<BaseLayout title="Order Canceled">
+  <section class="py-10 text-center">
+    <h1 class="text-3xl font-bold">Order canceled</h1>
+    <p class="text-gray-600 mt-2">You can continue shopping.</p>
+    <div class="mt-6">
+      <a class="underline" href={`/${locale}/cart`}>Back to Cart</a>
+    </div>
+  </section>
+</BaseLayout>
+

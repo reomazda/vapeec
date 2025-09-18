@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useCartStore } from '@/stores/cart'
-import { createCheckoutSession } from '@/lib/stripe'
 
 export default function CartView() {
   const { items, hydrate, updateQty, remove, clear } = useCartStore()
@@ -9,8 +8,14 @@ export default function CartView() {
   const currency = items[0]?.currency?.toUpperCase() || 'JPY'
 
   const checkout = async () => {
-    const res = await createCheckoutSession(items)
-    window.location.assign(res.url)
+    try {
+      // Compute locale from current path: /{locale}/...
+      const segs = window.location.pathname.split('/').filter(Boolean)
+      const locale = segs[0] || 'ja'
+      window.location.assign(`/${locale}/checkout/success`)
+    } catch {
+      window.location.assign('/ja/checkout/success')
+    }
   }
 
   if (items.length === 0) return <p className="text-gray-600">カートは空です。</p>

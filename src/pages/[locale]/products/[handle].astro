@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { retrieveProduct, type MedusaProduct } from '@/lib/api'
 import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+export async function getStaticPaths() { return [] }
 const locale = getLocaleFromParams(Astro.params)
 const { t } = getI18n(locale)
 const { handle } = Astro.params

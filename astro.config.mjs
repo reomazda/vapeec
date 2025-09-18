@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import vercel from '@astrojs/vercel/serverless'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx'
@@ -9,9 +8,8 @@ import { fileURLToPath } from 'node:url'
 export default defineConfig({
   // Vercel requires a valid absolute site URL for sitemap/canonical URLs
   site: 'https://smokeport.co',
-  // Switch to SSR on Vercel
-  output: 'server',
-  adapter: vercel(),
+  // Static export for Vercel (no serverless functions needed)
+  output: 'static',
   integrations: [
     react(),
     tailwind({ applyBaseStyles: true }),
