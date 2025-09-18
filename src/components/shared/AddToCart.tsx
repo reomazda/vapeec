@@ -11,3 +11,4 @@ export default function AddToCart({ id, title, price, currency, image, label = '
     </button>
   )
 }
+

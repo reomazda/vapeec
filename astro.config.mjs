@@ -3,6 +3,7 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
+import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
   // Vercel requires a valid absolute site URL for sitemap/canonical URLs
@@ -25,6 +26,11 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   i18n: {
     defaultLocale: 'ja',
     locales: ['ja', 'en', 'zh-CN', 'ko'],
