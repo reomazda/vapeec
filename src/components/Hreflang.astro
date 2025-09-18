@@ -1,0 +1,9 @@
+---
+import { altLocaleHrefs } from '@/i18n/utils'
+const site = Astro.site || new URL('https://example.com')
+const links = altLocaleHrefs(site, Astro.url.pathname)
+---
+{links.map((l) => (
+  <link rel="alternate" hreflang={l.lang} href={l.href} />
+))}
+

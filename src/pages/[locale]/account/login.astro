@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+const locale = getLocaleFromParams(Astro.params)
+const { t } = getI18n(locale)
+---
+
+<BaseLayout title={`Login | ${t('common','siteName')}`}>
+  <h1 class="text-2xl font-semibold mb-4">Login</h1>
+  <AuthForm client:load mode="login" labels={{
+    email: 'Email', password: 'Password', firstName: 'First name', lastName: 'Last name', submit: 'Login', switchTo: 'Create account', success: 'Logged in'
+  }} />
+  <p class="mt-4 text-sm text-gray-600"><a class="underline" href={`/${locale}/account/register`}>Create account</a></p>
+  <script>
+    import AuthForm from '@/pages/shared/AuthForm'
+  </script>
+</BaseLayout>
+

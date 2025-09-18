@@ -1,0 +1,17 @@
+{
+  "siteName": "Vape Import EC",
+  "siteDescription": "고품질 전자담배를 빠르게 수입",
+  "nav": {
+    "products": "상품",
+    "blog": "블로그",
+    "cart": "장바구니"
+  },
+  "home": {
+    "headline": "전자담배를 쉽게 구매",
+    "sub": "1주일 테스트 결제 운영, 주문 시 라이브 전환",
+    "cta": "상품 보기",
+    "popular": "인기 상품",
+    "viewAll": "전체 보기 →"
+  }
+}
+

@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProductCard from '@/components/ProductCard'
+import { listProducts, type MedusaProduct } from '@/lib/api'
+import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+
+const locale = getLocaleFromParams(Astro.params)
+const { t } = getI18n(locale)
+const products = await listProducts({ limit: 24 })
+---
+
+<BaseLayout title={`${t('products','listTitle')} | ${t('common','siteName')}`}>
+  <h1 class="text-2xl font-semibold mb-4">{t('products','listTitle')}</h1>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {products.map((p: MedusaProduct) => (
+      <ProductCard client:load product={p} labelAdd={t('products','addToCart')} />
+    ))}
+  </div>
+</BaseLayout>

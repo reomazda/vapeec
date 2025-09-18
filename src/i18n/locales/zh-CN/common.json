@@ -1,0 +1,17 @@
+{
+  "siteName": "Vape Import EC",
+  "siteDescription": "快速进口高品质电子烟",
+  "nav": {
+    "products": "商品",
+    "blog": "博客",
+    "cart": "购物车"
+  },
+  "home": {
+    "headline": "轻松购买电子烟",
+    "sub": "先以测试支付运营一周，有订单再上线。",
+    "cta": "查看商品",
+    "popular": "人气商品",
+    "viewAll": "查看全部 →"
+  }
+}
+

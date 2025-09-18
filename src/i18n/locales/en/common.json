@@ -1,0 +1,17 @@
+{
+  "siteName": "Vape Import EC",
+  "siteDescription": "Import quality e-cigarettes with fast delivery",
+  "nav": {
+    "products": "Products",
+    "blog": "Blog",
+    "cart": "Cart"
+  },
+  "home": {
+    "headline": "Buy e-cigarettes easily",
+    "sub": "Run test payments for one week; go live if orders come.",
+    "cta": "Browse Products",
+    "popular": "Popular Products",
+    "viewAll": "View all →"
+  }
+}
+

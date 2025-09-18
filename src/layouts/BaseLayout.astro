@@ -1,0 +1,41 @@
+---
+import '../styles/globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import SEO from '@/components/SEO'
+import AgeGate from '@/components/AgeGate'
+import Hreflang from '@/components/Hreflang.astro'
+import { getI18n, getLocaleFromParams } from '@/i18n/utils'
+const locale = getLocaleFromParams(Astro.params)
+const { t } = getI18n(locale)
+const { title = 'Vape Import EC', description = t('common', 'siteDescription', '高品質なEタバコを海外から輸入代行、迅速配送'), image = '/og.png', schema } = Astro.props as any
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO {title} {description} {image} {schema} />
+    <Hreflang />
+  </head>
+  <body>
+    <AgeGate client:load />
+    <Header client:load locale={locale} labels={{
+      siteName: t('common','siteName','Vape Import EC'),
+      nav: {
+        products: t('common','nav.products','商品'),
+        blog: t('common','nav.blog','ブログ'),
+        cart: t('common','nav.cart','カート'),
+        account: 'Account'
+      }
+    }} />
+    <main class="min-h-screen container py-8">
+      <slot />
+    </main>
+    <Footer labels={{
+      privacy: t('legal','privacy','プライバシー'),
+      terms: t('legal','terms','利用規約'),
+      sitemap: t('legal','sitemap','サイトマップ')
+    }} locale={locale} />
+  </body>
+</html>

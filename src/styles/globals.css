@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base tweaks */
+:root {
+  --site-bg: #0b0b10;
+}
+html { scroll-behavior: smooth; }
+body { @apply bg-white text-gray-900; }
+a { @apply text-primary-600 hover:text-primary-500 transition; }
+.container { @apply max-w-6xl mx-auto px-4; }
+

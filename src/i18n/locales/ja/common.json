@@ -1,0 +1,17 @@
+{
+  "siteName": "Vape Import EC",
+  "siteDescription": "高品質なEタバコを海外から輸入代行、迅速配送",
+  "nav": {
+    "products": "商品",
+    "blog": "ブログ",
+    "cart": "カート"
+  },
+  "home": {
+    "headline": "海外Eタバコをかんたん購入",
+    "sub": "テスト決済で1週間検証。注文があれば本番移行。",
+    "cta": "商品を見る",
+    "popular": "人気商品",
+    "viewAll": "すべて見る →"
+  }
+}
+
