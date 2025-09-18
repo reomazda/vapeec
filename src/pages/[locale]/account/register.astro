@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getI18n, getLocaleFromParams } from '@/i18n/utils'
 const locale = getLocaleFromParams(Astro.params)
 const { t } = getI18n(locale)
+import AuthForm from '@/components/shared/AuthForm'
 ---
 
 <BaseLayout title={`Register | ${t('common','siteName')}`}>
@@ -11,7 +12,5 @@ const { t } = getI18n(locale)
     email: 'Email', password: 'Password', firstName: 'First name', lastName: 'Last name', submit: 'Register', switchTo: 'Login', success: 'Registered'
   }} />
   <p class="mt-4 text-sm text-gray-600"><a class="underline" href={`/${locale}/account/login`}>Login</a></p>
-  <script>
-    import AuthForm from '@/components/shared/AuthForm'
-  </script>
+  
 </BaseLayout>

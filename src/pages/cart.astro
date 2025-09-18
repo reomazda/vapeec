@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import CartView from '@/components/shared/CartView'
 ---
 
 <BaseLayout title="カート | Vape Import EC">
   <h1 class="text-2xl font-semibold mb-4">ショッピングカート</h1>
   <CartView client:load />
-
-  <script>
-    import CartView from '@/components/shared/CartView'
-  </script>
 </BaseLayout>

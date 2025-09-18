@@ -2,13 +2,10 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getLocaleFromParams } from '@/i18n/utils'
 const locale = getLocaleFromParams(Astro.params)
+import CartView from '@/components/shared/CartView'
 ---
 
 <BaseLayout title={`Cart | Vape Import EC`}>
   <h1 class="text-2xl font-semibold mb-4">Cart</h1>
   <CartView client:load />
-
-  <script>
-    import CartView from '@/components/shared/CartView'
-  </script>
 </BaseLayout>

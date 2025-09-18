@@ -8,6 +8,7 @@ const { handle } = Astro.params
 const product = await retrieveProduct(handle!) as MedusaProduct
 const price = product.variants?.[0]?.prices?.[0]
 const amount = price ? (price.amount / 100).toFixed(2) + ' ' + price.currency_code?.toUpperCase() : ''
+import AddToCart from '@/components/shared/AddToCart'
 ---
 
 <BaseLayout title={`${product.title} | ${t('common','siteName')}`} description={product.description}>
@@ -23,7 +24,5 @@ const amount = price ? (price.amount / 100).toFixed(2) + ' ' + price.currency_co
     </div>
   </div>
 
-  <script>
-    import AddToCart from '@/components/shared/AddToCart'
-  </script>
+  
 </BaseLayout>
